@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
       ),
       trailing: <Widget>[
         IconButton(
-          icon: const Icon(Icons.message),
+          icon: const Icon(Icons.notifications),
           tooltip: 'Thông báo',
           onPressed: () {
             // handle the press
