@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app_ban_sach_bookie/common_widgets/home_page.dart';
+import 'package:app_ban_sach_bookie/common/views/home_page.dart';
 
 void main() {
   runApp(const MyApp());
