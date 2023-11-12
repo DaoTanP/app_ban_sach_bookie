@@ -1,3 +1,5 @@
+import 'package:app_ban_sach_bookie/features/auth/views/login_page.dart';
+import 'package:app_ban_sach_bookie/features/auth/views/signup_page.dart';
 import 'package:flutter/material.dart';
 
 class WrapperComponent extends StatelessWidget {
@@ -15,7 +17,7 @@ class WrapperComponent extends StatelessWidget {
       required this.title,
       this.centerTitle,
       required this.body,
-      this.trailing})
+      this.trailing,})
       : super(key: key);
 
   @override
@@ -29,10 +31,7 @@ class WrapperComponent extends StatelessWidget {
         actions: trailing,
       ),
       body: Center(
-        child: Text(
-          'Bla Bla',
-          style: TextStyle(fontSize: 24),
-        ),
+        
       ),
 
       bottomNavigationBar: Container(
@@ -47,11 +46,7 @@ class WrapperComponent extends StatelessWidget {
           children: [
              FloatingActionButton(
               onPressed:(){
-                //Test chuyển trang Login
-                // Navigator.push(
-                // context,
-                // MaterialPageRoute(builder: (context) => LoginPage()),
-                // );
+                
               },
               tooltip: 'Home',
               child: Icon(Icons.home),
@@ -65,11 +60,14 @@ class WrapperComponent extends StatelessWidget {
             ),
             FloatingActionButton(
               onPressed:(){
-
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+                );
               },
               tooltip: 'User',
               child: Icon(Icons.person_2_rounded),
-            ),
+            ),    
           ],
         ),
       ),
