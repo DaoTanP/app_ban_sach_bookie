@@ -139,7 +139,7 @@ class LoginBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Bạn chưa có tài khoản? ',
+              'Bạn chưa có tài khoản?',
               style: TextStyle(color: Colors.black),
             ),
             GestureDetector(
@@ -147,7 +147,7 @@ class LoginBody extends StatelessWidget {
                 // Xử lý khi nhấn vào chữ "Đăng ký"
               },
               child: Text(
-                'Đăng ký',
+                ' Đăng ký',
                 style: TextStyle(
                     color: Colors.blue, decoration: TextDecoration.underline),
               ),
