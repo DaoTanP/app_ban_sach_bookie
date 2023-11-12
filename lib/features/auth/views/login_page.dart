@@ -131,7 +131,6 @@ class LoginBody extends StatelessWidget {
         SizedBox(height: 20),
 
         Divider(
-          // thickness: 2,
           color: Colors.black,
           height: 2,
         ),
