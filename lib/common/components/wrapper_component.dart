@@ -28,7 +28,51 @@ class WrapperComponent extends StatelessWidget {
         centerTitle: centerTitle,
         actions: trailing,
       ),
-      body: body,
+      body: Center(
+        child: Text(
+          'Bla Bla',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(8),
+        margin: EdgeInsets.symmetric(horizontal:8.0),
+        decoration: BoxDecoration(
+          color: backgroundColor.withOpacity(0.8),
+          borderRadius: BorderRadius.all(Radius.circular(24))
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+             FloatingActionButton(
+              onPressed:(){
+                //Test chuyển trang Login
+                // Navigator.push(
+                // context,
+                // MaterialPageRoute(builder: (context) => LoginPage()),
+                // );
+              },
+              tooltip: 'Home',
+              child: Icon(Icons.home),
+            ),
+            FloatingActionButton(
+              onPressed:(){
+
+              },
+              tooltip: 'Add',
+              child: Icon(Icons.add_circle_outlined),
+            ),
+            FloatingActionButton(
+              onPressed:(){
+
+              },
+              tooltip: 'User',
+              child: Icon(Icons.person_2_rounded),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
