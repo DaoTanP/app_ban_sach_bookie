@@ -32,28 +32,50 @@ class LoginBody extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        TextFormField(
-          decoration: InputDecoration(
-            labelText: 'Số điện thoại/Tên đăng nhập',
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(Icons.account_circle), // Icon tài khoản
-          ),
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.account_circle,
+              ),
+            ),
+            Expanded(
+              child: TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Số điện thoại/Tên đăng nhập',
+                  border: OutlineInputBorder(), // Icon tài khoản
+                ),
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 20),
-        TextFormField(
-          decoration: InputDecoration(
-            labelText: 'Mật khẩu',
-            border: OutlineInputBorder(),
-            prefixIcon: Icon(Icons.lock), // Icon mật khẩu
-            suffixIcon: IconButton(
-              onPressed: () {
-                // Toggle logic to show/hide password
-              },
-              icon: Icon(Icons
-                  .visibility), // Hiển thị biểu tượng để show/hide mật khẩu
+        Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.lock,
+              ),
             ),
-          ),
-          obscureText: true,
+            Expanded(
+              child: TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Mật khẩu',
+                  border: OutlineInputBorder(),// Icon mật khẩu
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      // Toggle logic to show/hide password
+                    },
+                    icon: Icon(Icons
+                        .visibility), // Hiển thị biểu tượng để show/hide mật khẩu
+                  ),
+                ),
+                obscureText: true,
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 10), // Khoảng cách giữa ô mật khẩu và "Quên mật khẩu"
         Row(
