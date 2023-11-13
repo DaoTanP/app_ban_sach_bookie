@@ -1,4 +1,5 @@
 import 'package:app_ban_sach_bookie/common/components/wrapper_component.dart';
+import 'package:app_ban_sach_bookie/features/product/views/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,7 +25,10 @@ class HomePage extends StatelessWidget {
           icon: const Icon(Icons.shopping_cart),
           tooltip: 'Giỏ hàng',
           onPressed: () {
-            // handle the press
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Cart_page()),
+            );
           },
         ),
       ],
