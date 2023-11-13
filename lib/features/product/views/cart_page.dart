@@ -14,6 +14,8 @@ class Cart_page extends StatelessWidget {
           style: TextStyle(
           color: Colors.black, fontWeight: FontWeight.bold,),
         ),
+
+        
         centerTitle: true,
       ),
     );
