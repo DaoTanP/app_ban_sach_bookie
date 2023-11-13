@@ -49,20 +49,30 @@ class SignupBody extends StatelessWidget {
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Số điện thoại/Tên đăng nhập',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.account_circle),
-                      // Biểu tượng ẩn/ hiển thị 
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          //Xử lý ẩn/ hiển thị 
-                        },
-                        icon: Icon(Icons
-                            .visibility),
-                      ), 
-                    ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.account_circle,
+                        ),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            labelText: 'Số điện thoại/Tên đăng nhập',
+                            border: OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                //Xử lý ẩn/ hiển thị 
+                              },
+                              icon: Icon(Icons
+                                  .visibility),
+                            ), 
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 50),
                   Row(
