@@ -34,8 +34,13 @@ class SignupPage extends StatelessWidget {
     );
   }
 }
+class SignupBody extends StatefulWidget {
+  @override
+  _SignupBodyState createState() => _SignupBodyState();
+}
 
-class SignupBody extends StatelessWidget {
+class _SignupBodyState extends State<SignupBody> {
+  int _currentStep = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +50,7 @@ class SignupBody extends StatelessWidget {
           steps: <Step> [
             //Step screen 1
             Step(
+              isActive: _currentStep == 0,
               title: Text('Screen 1'),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +66,7 @@ class SignupBody extends StatelessWidget {
                       Expanded(
                         child: TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Số điện thoại/Tên đăng nhập',
+                            labelText: 'Số điện thoại...',
                             border: OutlineInputBorder(),
                             suffixIcon: IconButton(
                               onPressed: () {
@@ -227,6 +233,7 @@ class SignupBody extends StatelessWidget {
             ),
             //Step screen 2
             Step(
+              isActive: _currentStep == 1,
               title: Text('Screen 2'),
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -399,15 +406,38 @@ class SignupBody extends StatelessWidget {
             ),
             //Step Screen 3
             Step(
+              isActive: _currentStep == 2,
               title: Text('Screen 3'), 
               content: Column(
 
               )
             )
           ],
+          onStepTapped: (int newIndex) {
+            setState(() {
+              _currentStep = newIndex;
+            });
+          },
+          currentStep: _currentStep,
+          onStepContinue: () {
+            if(_currentStep != 2) {
+              setState(() {
+                _currentStep += 1;
+              });
+            }
+          },
+          onStepCancel: () {
+            if(_currentStep != 0) {
+              setState(() {
+                _currentStep -= 1;
+              });
+            }
+          },
         ),
       ),
     );
   }
 }
+
+
 
