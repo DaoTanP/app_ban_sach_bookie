@@ -34,13 +34,39 @@ class SignupPage extends StatelessWidget {
     );
   }
 }
+
 class SignupBody extends StatefulWidget {
   @override
   _SignupBodyState createState() => _SignupBodyState();
 }
 
 class _SignupBodyState extends State<SignupBody> {
+  Widget _otpTextField({required bool first, required bool last}) {
+    return Container(
+      height: 60,
+      child: AspectRatio(
+        aspectRatio: 1.0,
+        child: TextFormField(
+          onChanged: (value) {
+            if (value.length == 1 && last == false) {
+              FocusScope.of(context).nextFocus();
+            }
+            if (value.length == 0 && first == false) {
+              FocusScope.of(context).previousFocus();
+            }
+          },
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            border: UnderlineInputBorder(),
+          ),
+        ),
+      ),
+    );
+  }
   int _currentStep = 0;
+  TextEditingController otpController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,49 +86,47 @@ class _SignupBodyState extends State<SignupBody> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Icon(
-                          Icons.account_circle,
+                          Icons.call,
+                          size: 40,
                         ),
                       ),
                       Expanded(
                         child: TextFormField(
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: 'Số điện thoại...',
                             border: OutlineInputBorder(),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                //Xử lý ẩn/ hiển thị 
-                              },
-                              icon: Icon(Icons
-                                  .visibility),
-                            ), 
                           ),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(height: 50),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Xử lý đăng ký
-                          },
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            'Tiếp theo',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Xử lý nút tiếp tục
+                      },
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.orange),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),
-                    ],
+                      child: Padding(
+                        padding: EdgeInsets.all(14.0),
+                        child: Text(
+                          'Tiếp tục',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 50),
                   Row(
@@ -129,13 +153,17 @@ class _SignupBodyState extends State<SignupBody> {
                           // Xử lý đăng ký bằng Facebook
                         },
                         style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
-                        icon: Icon(Icons.facebook), 
+                        icon: Icon(Icons.facebook, size: 24), 
                         label: Text('Facebook'),
                       ),
                       SizedBox(width: 50),
@@ -144,13 +172,17 @@ class _SignupBodyState extends State<SignupBody> {
                           // Xử lý đăng ký bằng Google
                         },
                         style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
-                        icon: Icon(Icons.g_mobiledata), 
+                        icon: Icon(Icons.g_mobiledata, size: 28), 
                         label: Text('Google'),
                       ),
                       SizedBox(width: 50),
@@ -159,13 +191,17 @@ class _SignupBodyState extends State<SignupBody> {
                           // Xử lý đăng ký bằng Apple
                         },
                         style: ButtonStyle(
+                          foregroundColor:
+                              MaterialStateProperty.all<Color>(Colors.white),
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.orange),
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ),
-                        icon: Icon(Icons.apple), 
+                        icon: Icon(Icons.apple, size: 28), 
                         label: Text('Apple'),
                       ),
                     ],
@@ -238,165 +274,120 @@ class _SignupBodyState extends State<SignupBody> {
               content: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Số điện thoại/Tên đăng nhập',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.account_circle),
-                      // Biểu tượng ẩn/ hiển thị 
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          //Xử lý ẩn/ hiển thị 
-                        },
-                        icon: Icon(Icons
-                            .visibility),
-                      ), 
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Mã xác thực (OTP) sẽ gửi qua tin nhắn của số điện thoại",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          "(+84) 0123456789",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _otpTextField(first: true, last: false),
+                            _otpTextField(first: false, last: false),
+                            _otpTextField(first: false, last: false),
+                            _otpTextField(first: false, last: false),
+                            _otpTextField(first: false, last: true),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () {
+                                  
+                                },
+                                child: Text(
+                                  'Gửi lại mã ?',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 50),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Xử lý đăng ký
-                          },
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
-                              ),
-                            ),
-                          ),
-                          child: Text(
-                            'Tiếp theo',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(height: 20),
+                  Text(
+                    "Vui lòng chờ trong giây lát để nhận được mã xác thực",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Divider(color: Colors.black),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text('Hoặc'),
-                      ),
-                      Expanded(
-                        child: Divider(color: Colors.black),
-                      ),
-                    ],
+                  SizedBox(height: 40),
+                  Container(
+                    width: 200, // Đặt chiều rộng của thanh Divider tại đây
+                    child: Divider(
+                      color: Colors.black,
+                      height: 2,
+                    ),
                   ),
-                  SizedBox(height: 50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Xử lý đăng ký bằng Facebook
-                        },
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
-                            ),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Xử lý nút tiếp tục
+                      },
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.orange),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
-                        icon: Icon(Icons.facebook), 
-                        label: Text('Facebook'),
                       ),
-                      SizedBox(width: 50),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Xử lý đăng ký bằng Google
-                        },
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
-                            ),
-                          ),
+                      child: Padding(
+                        padding: EdgeInsets.all(14.0),
+                        child: Text(
+                          'Tiếp tục',
+                          style: TextStyle(fontSize: 16),
                         ),
-                        icon: Icon(Icons.g_mobiledata), 
-                        label: Text('Google'),
                       ),
-                      SizedBox(width: 50),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Xử lý đăng ký bằng Apple
-                        },
-                        style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
-                            ),
-                          ),
-                        ),
-                        icon: Icon(Icons.apple), 
-                        label: Text('Apple'),
-                      ),
-                    ],
+                    ),
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.topCenter, // Đảm bảo căn chỉnh theo trục chính
-                        child: Icon(Icons.check_box),
-                      ),
                       SizedBox(width: 10),
                       Flexible(
-                        child: RichText(
-                          text: TextSpan(
-                            style: DefaultTextStyle.of(context).style,
-                            children: [
-                              TextSpan(
-                                text: 'Bạn đồng ý với Bookie về điều khoản dịch vụ & Chính sách bảo mật khi đăng ký',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
+                        child: Text(
+                          "Lưu ý: Không cung cấp mã xác thực cho người khác\n",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic,
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Divider(
-                    color: Colors.black,
-                    height: 2,
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Bạn đã có tài khoản? ',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => LoginPage()),// Xử lý khi nhấn vào chữ "Đăng ký"
-                            );
-                          },
-                          child: Text(
-                            'Đăng nhập',
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 125, 110, 110), 
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -433,9 +424,15 @@ class _SignupBodyState extends State<SignupBody> {
               });
             }
           },
+          
         ),
       ),
     );
+  }
+  void main() {
+    runApp(MaterialApp(
+      home: SignupBody(),
+    ));
   }
 }
 
