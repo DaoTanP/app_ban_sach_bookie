@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: SignupBody(), // Sử dụng widget tạo nội dung đăng nhập
+        child: SignupBody(), 
       ),
     );
   }
