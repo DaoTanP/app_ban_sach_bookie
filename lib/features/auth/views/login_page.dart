@@ -68,8 +68,7 @@ class LoginBody extends StatelessWidget {
                     onPressed: () {
                       // Toggle logic to show/hide password
                     },
-                    icon: Icon(Icons
-                        .visibility), // Hiển thị biểu tượng để show/hide mật khẩu
+                    icon: Icon(Icons.visibility), 
                   ),
                 ),
                 obscureText: true,
@@ -77,7 +76,7 @@ class LoginBody extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10), // Khoảng cách giữa ô mật khẩu và "Quên mật khẩu"
+        SizedBox(height: 10), 
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -106,7 +105,6 @@ class LoginBody extends StatelessWidget {
                   // Xử lý đăng nhập
                 },
                 style: ButtonStyle(
-                  // backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -123,7 +121,7 @@ class LoginBody extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 20), // Khoảng cách giữa ô mật khẩu và "Đăng nhập SMS"
+        SizedBox(height: 20), 
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -170,7 +168,7 @@ class LoginBody extends StatelessWidget {
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0), 
                   ),
                 ),
               ),
@@ -185,11 +183,11 @@ class LoginBody extends StatelessWidget {
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0), 
                   ),
                 ),
               ),
-              icon: Icon(Icons.g_mobiledata), // Biểu tượng Google
+              icon: Icon(Icons.g_mobiledata), 
               label: Text('Google'),
             ),
             SizedBox(width: 50),
@@ -200,7 +198,7 @@ class LoginBody extends StatelessWidget {
               style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0), 
                   ),
                 ),
               ),
