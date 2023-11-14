@@ -1,11 +1,10 @@
 import 'package:app_ban_sach_bookie/features/auth/views/login_page.dart';
 import 'package:app_ban_sach_bookie/features/auth/views/signup_page.dart';
 import 'package:app_ban_sach_bookie/common/views/home_page.dart';
-import 'package:app_ban_sach_bookie/test.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Test());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

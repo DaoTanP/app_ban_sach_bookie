@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
 class WrapperComponent extends StatelessWidget {
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Widget? leading;
   final Widget? title;
   final bool? centerTitle;
   final Widget body;
   final List<Widget>? trailing;
+  final Widget? bottomNavBar;
 
   const WrapperComponent({
     Key? key,
-    required this.backgroundColor,
+    this.backgroundColor,
     this.leading,
-    required this.title,
+    this.title,
     this.centerTitle,
     required this.body,
     this.trailing,
+    this.bottomNavBar,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class WrapperComponent extends StatelessWidget {
             )
           : null,
       body: body,
+      bottomNavigationBar: bottomNavBar,
     );
   }
 }
