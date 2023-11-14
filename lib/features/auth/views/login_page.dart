@@ -38,6 +38,7 @@ class LoginBody extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Icon(
                 Icons.account_circle,
+                size: 40,
               ),
             ),
             Expanded(
@@ -57,6 +58,7 @@ class LoginBody extends StatelessWidget {
               padding: EdgeInsets.all(8.0),
               child: Icon(
                 Icons.lock,
+                size: 40,
               ),
             ),
             Expanded(
@@ -68,8 +70,7 @@ class LoginBody extends StatelessWidget {
                     onPressed: () {
                       // Toggle logic to show/hide password
                     },
-                    icon: Icon(Icons
-                        .visibility), // Hiển thị biểu tượng để show/hide mật khẩu
+                    icon: Icon(Icons.visibility), 
                   ),
                 ),
                 obscureText: true,
@@ -77,7 +78,7 @@ class LoginBody extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 10), // Khoảng cách giữa ô mật khẩu và "Quên mật khẩu"
+        SizedBox(height: 10), 
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -98,32 +99,34 @@ class LoginBody extends StatelessWidget {
           ],
         ),
         SizedBox(height: 20),
-        Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  // Xử lý đăng nhập
-                },
-                style: ButtonStyle(
-                  // backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                ),
-                child: Text(
-                  'Đăng nhập',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+        SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            onPressed: () {
+              // Xử lý nút tiếp tục
+            },
+            style: ButtonStyle(
+              foregroundColor:
+                  Theme.of(context).textButtonTheme.style?.foregroundColor,
+              backgroundColor:
+                  Theme.of(context).textButtonTheme.style?.backgroundColor,
+              shape:
+                  MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ),
-          ],
+            child: Padding(
+              padding: EdgeInsets.all(14.0),
+              child: Text(
+                'Đăng nhập',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
         ),
-        SizedBox(height: 20), // Khoảng cách giữa ô mật khẩu và "Đăng nhập SMS"
+        SizedBox(height: 20), 
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -148,14 +151,14 @@ class LoginBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
-              child: Divider(color: Colors.black),
+              child: Divider(color: Colors.grey),
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text('Hoặc'),
             ),
             Expanded(
-              child: Divider(color: Colors.black),
+              child: Divider(color: Colors.grey),
             ),
           ],
         ),
@@ -168,53 +171,69 @@ class LoginBody extends StatelessWidget {
                 // Xử lý đăng nhập bằng Facebook
               },
               style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                foregroundColor:
+                  Theme.of(context).textButtonTheme.style?.foregroundColor,
+              backgroundColor:
+                  Theme.of(context).textButtonTheme.style?.backgroundColor,
+                shape: MaterialStateProperty.all<
+                    RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
-              icon: Icon(Icons.facebook), // Biểu tượng Facebook
+              icon: Icon(Icons.facebook, size: 24),
               label: Text('Facebook'),
             ),
-            SizedBox(width: 20),
+            SizedBox(width: 50),
             ElevatedButton.icon(
               onPressed: () {
                 // Xử lý đăng nhập bằng Google
               },
               style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                foregroundColor:
+                  Theme.of(context).textButtonTheme.style?.foregroundColor,
+              backgroundColor:
+                  Theme.of(context).textButtonTheme.style?.backgroundColor,
+                shape: MaterialStateProperty.all<
+                    RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
-              icon: Icon(Icons.g_mobiledata), // Biểu tượng Google
+              icon: Icon(Icons.g_mobiledata, size: 28),
               label: Text('Google'),
             ),
             SizedBox(width: 50),
             ElevatedButton.icon(
               onPressed: () {
-                // Xử lý đăng ký bằng Apple
+                // Xử lý đăng nhập bằng Apple
               },
               style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                foregroundColor:
+                  Theme.of(context).textButtonTheme.style?.foregroundColor,
+              backgroundColor:
+                  Theme.of(context).textButtonTheme.style?.backgroundColor,
+                shape: MaterialStateProperty.all<
+                    RoundedRectangleBorder>(
                   RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Điều chỉnh border radius ở đây
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ),
-              icon: Icon(Icons.apple), 
+              icon: Icon(Icons.apple, size: 28),
               label: Text('Apple'),
             ),
           ],
         ),
         SizedBox(height: 50),
-
-        Divider(
-          // thickness: 2,
-          color: Colors.black,
-          height: 2,
+        Container(
+          width: 300, // Đặt chiều rộng của thanh Divider tại đây
+          child: Divider(
+            color: Colors.grey,
+            height: 2,
+          ),
         ),
         SizedBox(height: 20),
         Row(
