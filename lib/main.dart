@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:app_ban_sach_bookie/features/auth/views/login_page.dart';
+import 'package:app_ban_sach_bookie/features/auth/views/signup_page.dart';
 import 'package:app_ban_sach_bookie/common/views/home_page.dart';
+import 'package:app_ban_sach_bookie/test.dart';
+import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Test());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +20,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/login': (context) => const LoginPage(),
+        '/signup': (context) => const SignupPage(),
+      },
+      // home: const HomePage(),
     );
   }
 }
