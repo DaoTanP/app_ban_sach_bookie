@@ -52,19 +52,19 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(width: 2),
+                  borderSide: const BorderSide(width: 2),
                 ),
-                prefixIcon: Icon(Icons.search_rounded),
+                prefixIcon: const Icon(Icons.search_rounded),
                 suffixIcon: IconButton(
                   onPressed: () {
                     // Toggle logic to show/hide password
                   },
-                  icon: Icon(Icons.cancel_outlined),
+                  icon: const Icon(Icons.cancel_outlined),
                 ),
               ),
             ),
@@ -75,23 +75,23 @@ class HomePage extends StatelessWidget {
             fit: BoxFit.fitWidth,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
             child: Wrap(
               spacing: 16,
               alignment: WrapAlignment.spaceBetween,
               children: [
-                Button(icon: Icon(Icons.image), onPressed: () {}),
-                Button(icon: Icon(Icons.image), onPressed: () {}),
-                Button(icon: Icon(Icons.image), onPressed: () {}),
-                Button(icon: Icon(Icons.image), onPressed: () {}),
-                Button(icon: Icon(Icons.image), onPressed: () {}),
-                Button(icon: Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
+                Button(icon: const Icon(Icons.image), onPressed: () {}),
               ],
             ),
           ),
           Container(
-            padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
-            child: BookSectionComponent(),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+            child: const BookSectionComponent(),
           )
         ],
       ),
@@ -111,12 +111,12 @@ class Button extends StatelessWidget {
       iconSize: MediaQuery.of(context).size.width * 0.1,
       icon: icon,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(4)),
+        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(4)),
         foregroundColor: MaterialStateProperty.all<Color>(Colors.black45),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
-            side: BorderSide(color: Colors.black26, width: 2),
+            side: const BorderSide(color: Colors.black26, width: 2),
           ),
         ),
       ),
